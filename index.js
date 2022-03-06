@@ -64,8 +64,8 @@ app.post("/sign_up",(req,res)=>{
 }) 
 
 let port = process.env.PORT;
-if(port == null || port == ""){
-port = 3000;
+if (port == null || port == "") {
+  port = 3000;
 }
 
 app.get("/",(req,res)=>{
@@ -73,7 +73,11 @@ app.get("/",(req,res)=>{
         "Allow-access-Allow-Origin": '*'
     })
     return res.redirect('index.html');
-}).listen(port);
+})
+
+app.listen(port, function() {
+    console.log("Server started succesfully");
+  });  
 
 
 
