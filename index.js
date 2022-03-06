@@ -1,6 +1,15 @@
 var express = require("express")
 var bodyParser = require("body-parser")
 var mongoose = require("mongoose")
+const ChannelModel = require("./models/channel")
+
+const dbUrl = "mongodb+srv://dalaw:dalaw2614@cluster0.i4kh1.mongodb.net/tnbDatabase?retryWrites=true&w=majority"
+const PORT = 3000; 
+
+const connectionParams = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+}
 
 const app = express()
 
@@ -10,12 +19,14 @@ app.use(bodyParser.urlencoded({
     extended:true
 }))
 
-mongoose.connect('mongodb://localhost:27017/mydb',{
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+mongoose.connect(dbUrl, connectionParams).then(()=>{
+    console.info("connected to DB");
+})
+.catch((e) =>{
+    console.log("Error:", e);
 });
 
-var db = mongoose.connection;
+var db = mongoose.connection; 
 
 db.on('error',()=>console.log("Error in Connecting to Database"));
 db.once('open',()=>console.log("Connected to Database"))
@@ -50,7 +61,7 @@ app.post("/sign_up",(req,res)=>{
 
     return res.redirect('signup_success.html')
 
-})
+}) 
 
 
 app.get("/",(req,res)=>{
@@ -58,7 +69,34 @@ app.get("/",(req,res)=>{
         "Allow-access-Allow-Origin": '*'
     })
     return res.redirect('index.html');
-}).listen(3000);
+}).listen(PORT);
 
 
 console.log("Listening on PORT 3000");
+
+/*
+app.listen(PORT, ()=>{
+console.log(`Listening on PORT: ${PORT}`);
+}); */
+/*
+app.get("/insert",(req,res)=>{
+   var channelModel = new ChannelModel()
+   channelModel.email = "dalaw@aggies.ncat.edu"
+   channelModel.schoolName = "ncat"
+   channelModel.instagram = "director_meech"
+   channelModel.musicArtist = "NO"
+   channelModel.occupation = "Videographer"
+   channelModel.tnbCharts = "YES"
+   channelModel.spotifyUrl = "dalaw"
+   channelModel.soundcloudUrl = "soundcloud.com/dalaw"
+
+   channelModel.save((err,data)=>{
+       if(err){
+console.error(err)
+       }else{
+           res.status(200).send({"msg": "Inserted to DB"})
+       }
+   })
+})
+
+*/
