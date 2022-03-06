@@ -4,7 +4,7 @@ var mongoose = require("mongoose")
 const ChannelModel = require("./models/channel")
 
 const dbUrl = "mongodb+srv://dalaw:dalaw2614@cluster0.i4kh1.mongodb.net/tnbDatabase?retryWrites=true&w=majority"
-const PORT = 3000; 
+//const PORT = 3000; 
 
 const connectionParams = {
     useNewUrlParser: true,
@@ -63,13 +63,18 @@ app.post("/sign_up",(req,res)=>{
 
 }) 
 
+let port = process.env.PORT;
+if(port == null || port == ""){
+port = 3000;
+}
 
 app.get("/",(req,res)=>{
     res.set({
         "Allow-access-Allow-Origin": '*'
     })
     return res.redirect('index.html');
-}).listen(PORT);
+}).listen(port);
+
 
 
 console.log("Listening on PORT 3000");
