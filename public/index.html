@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        Email
+        School name
+        Instagram
+        Are you a music artist y/n
+        text field (if not, what are you? ex. dj, producer, fashion enthusiast)
+
+        would you like to sign up for th tnb music charts? y/n
+        **optional Spotify name/url
+        ** soundcloud url
+
+        submit
+
+    -->
+
+
+    <form action="/sign_up" method="POST">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" value=""><br>
+        <label for="sname">School Name:</label><br>
+        <input type="text" id="sname" name="sname" value=""><br>
+        <label for="instagram">Instagram Handle:</label><br>
+        <input type="text" id="instagram" name="instagram" value=""><br>
+
+        <label for="musicartist">Are you a Music Artist?</label><br>
+        <input type="radio" id="musicartist" name="musicartist" value="YES">
+        <label for="musicartist">YES</label><br>
+        <input type="radio" id="musicartist" name="musicartist" value="NO">
+        <label for="musicartist">NO</label><br>
+<label for="whar">If No, What Are You?</label><br>
+        <input type="text" id="whar" name="whar" placeholder="Dj, Fashion Enthusiast" value=""><br>
+
+        <label for="charts">Would you like to Enroll in the TNB Music Charts?</label><br>
+        <input type="radio" id="charts" name="charts" value="YES">
+        <label for="charts">YES</label><br>
+        <input type="radio" id="charts" name="charts" value="NO">
+        <label for="charts">NO</label><br>
+
+<label for="email">**Optional** Spotify Url / Artist Name:</label><br>
+        <input type="spoturl" id="spoturl" name="spoturl" value=""><br>
+        <label for="soundurl">**Optional** Soundcloud URL:</label><br>
+        <input type="text" id="soundurl" name="soundurl" value="">
+
+        <input type="submit" value="Submit">
+        
+      </form>
+</body>
+</html>
