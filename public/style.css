@@ -1,7 +1,7 @@
 /* Style the form */
 #regForm {
     background-color: #ffffff;
-    margin: 100px auto;
+    margin: 50px auto;
     padding: 40px;
     width: 70%;
     min-width: 300px;
@@ -59,6 +59,7 @@
     background: linear-gradient(50deg, #ff4169 0, #12a3b5 100%);
 box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 padding: 35px;
+
 }
 
 
@@ -71,6 +72,7 @@ color:white;
             text-align: center;
             font-weight: 600;
             color: white;
+            font-size: 18px;
         }
 
         .smallGrey{
@@ -78,3 +80,17 @@ color:white;
             font-size: 12px;
             
         }
+
+        .curatedText2{
+            text-align: center;
+            font-weight: 300;
+            color: white;
+            font-size: 14px;
+        }
+
+        .successAlign{
+            text-align: center;
+            margin-top:25px;
+        }
+
+    
