@@ -33,23 +33,25 @@ db.once('open',()=>console.log("Connected to Database"))
 
 app.post("/sign_up",(req,res)=>{
     var email = req.body.email;
-    var sname = req.body.sname;
     var instagram= req.body.instagram;
-    var musicartist = req.body.musicartist;
-    var whar= req.body.whar;
-    var charts= req.body.charts;
+    var selectSchool = req.body.selectSchool;
+    var addNewSchool = req.body.addNewSchool;
+    var whatAreYou = req.body.whatAreYou;
+    var contestEnroll= req.body.contestEnroll;
     var spoturl = req.body.spoturl;
     var soundurl= req.body.soundurl;
+    var brandUrl= req.body.brandUrl;
 
     var data = {
         "email": email,
-        "schoolName": sname,
         "instagram": instagram,
-        "musicartist":musicartist,
-        "occupation": whar,
-        "tnbCharts":charts,
+        "schoolName": selectSchool,
+        "addSchoolName": addNewSchool,
+        "occupation":whatAreYou,
+        "contestEnrollment": contestEnroll,
         "spotifyUrl": spoturl,
-        "soundcloudUrl":soundurl
+        "soundcloudUrl":soundurl,
+        "brandUrl":brandUrl,
     }
 
     db.collection('users').insertOne(data,(err,collection)=>{

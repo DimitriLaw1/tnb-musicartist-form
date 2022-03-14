@@ -6,24 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>The NetBerry </title>
+    <title>The NetBerry</title>
 </head>
-<body> 
-    <!-- 
-        Email
-        School name
-        Instagram
-        Are you a music artist y/n
-        text field (if not, what are you? ex. dj, producer, fashion enthusiast)
-
-        would you like to sign up for th tnb music charts? y/n
-        **optional Spotify name/url
-        ** soundcloud url
-
-        submit
-
-    -->
-
+<body>
     <div class="container-fluid" id="bg-border1">  
   
 
@@ -31,47 +16,141 @@
         <h1 class="hotWeekend"> 
             TheNetBerry
         </h1>
-        <p class="curatedText"> Get Discovered! Join the Largest HBCU Music & Fashion Database! </p>
+        <p class="curatedText"> Get Discovered! Join the Community! Largest HBCU Music & Fashion Database! </p>
     </div>
     </div>
+    <form class="container" id="regForm" action="/sign_up" method="POST">
 
-    <div class="container" style="text-align:center">
+        <h1>Sign up and Join the Community!</h1>
+        
+        <!-- One "tab" for each step in the form: -->
+        <div class="tab">Information about you:
+          <p><input type="email" id="email" name="email" value="" placeholder="Email..." oninput="this.className = ''"></p>
+          
+          <p><input type="text" id="instagram" name="instagram" value="" placeholder="Instagram Name..." oninput="this.className = ''"></p>
 
-    <form action="/sign_up" method="POST">
-        <label class="bold" for="email">Email:</label><br>
-        <input style="width:400px; height: 40px;" type="email" id="email" name="email" value=""><br>
-        <label class="bold" for="sname">School Name:</label><br>
-        <input style="width:400px; height: 40px;" type="text" id="sname" name="sname" value=""><br>
-        <label class="bold" for="instagram">Instagram Handle:</label><br>
-        <input style="width:400px; height: 40px;" type="text" id="instagram" name="instagram" value=""><br>
+          <p><label for="selectSchool">Select your School:</label>
+           
+            <select id="selectSchool" name="selectSchool">
+                <option value="empty"> </option>
+              <option value="ncat">North Carolina Agricultural and Technical State University</option>
+              <option value="famu">Florida Agricultural and Mechanical University</option>
+              <option value="wssu">Winston-Salem State University</option>
+              <option value="vsu">Virginia State University</option>
+              <option value="jcsu">Johnson C. Smith University</option>
+              <option value="howardU">Howard University</option>
+              <option value="dsu">Delaware State University</option>
+              <option value="asu">Alabama State University</option>
+              <option value="tsu">Texas Southern University</option>
+              <option value="hamptonU">Hampton University</option>
+              <option value="ssu">Savannah State University</option>
+            </select></p>
+<hr>
+            <p><label for="addNewSchool">School not listed?</label>
+            <p><input type="text" id="addNewSchool" name="addNewSchool" value="" placeholder="Type your Schools Name..." oninput="this.className = ''"></p>
+        </div>
+        
+        <div class="tab">More Information About Who You Are:
+            <p class="smallGrey"><label for="whatAreYou">Select the best option that applies to you</label>
+                <select id="whatAreYou" name="whatAreYou" >
+                    <option value="empty"> </option>
+                  <option value="musicArtist">Music Artist</option>
+                  <option value="fashionEnthusiast">Fashion Enthusiast</option>
+                  <option value="Student">Just a Student</option>
+                  <option value="Alumni">Just an Alumni</option>
+                  
+                </select></p>
+        </div>
+        
+        <div class="tab">
+            <p><label for="contestEnroll">Would you Like to Enroll In Future Contest that We Have?</label></p>
+            <p class="smallGrey"> Contest: Drip Overload, Music Charts, Giveaways, etc.. </p> <hr>
+            <input type="radio" id="contestEnroll" name="contestEnroll" value="YES">
+                    <label  for="contestEnroll">YES</label>
+                    <input type="radio" id="musicartist" name="contestEnroll" value="NO">
+                    <label for="contestEnroll">NO </label>
+        </div>
+        
+        <div class="tab">OPTIONAL | Share valuable Links:
+          <p><input type="text" id="spotifyName" name="spoturl" value="" placeholder="Spotify Name..." oninput="this.className = ''"></p>
+          <p><input type="text" id="soundcloudUrl" name="soundurl" value="" placeholder="Soundcloud URL..." oninput="this.className = ''"></p>
+          <p><input type="text" id="brandUrl" name="brandUrl" value="" placeholder="Your Brand/Business Link..." oninput="this.className = ''"></p>
+        </div>
+        
+        <div style="overflow:auto;">
+          <div style="float:right;">
+            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
+            <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+          </div>
+        </div>
+        
+        <!-- Circles which indicates the steps of the form: -->
+        <div style="text-align:center;margin-top:40px;">
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+          <span class="step"></span>
+        </div>
+        
+        </form>
+    <script>
+        var currentTab = 0; // Current tab is set to be the first tab (0)
+showTab(currentTab); // Display the current tab
 
-        <label class="bold" for="musicartist">Are you a Music Artist?</label><br>
-        <input type="radio" id="musicartist" name="musicartist" value="YES">
-        <label  for="musicartist">YES</label>
-        <input type="radio" id="musicartist" name="musicartist" value="NO">
-        <label for="musicartist">NO </label><br> <hr>
-<label  class="bold" for="whar">If No, What Are You?</label><br>
-        <input style="width:400px; height: 40px;"  type="text" id="whar" name="whar" placeholder=" Dj, Fashion Enthusiast, etc..." value=""><br><hr>
+function showTab(n) {
+  // This function will display the specified tab of the form ...
+  var x = document.getElementsByClassName("tab");
+  x[n].style.display = "block";
+  // ... and fix the Previous/Next buttons:
+  if (n == 0) {
+    document.getElementById("prevBtn").style.display = "none";
+  } else {
+    document.getElementById("prevBtn").style.display = "inline";
+  }
+  if (n == (x.length - 1)) {
+    document.getElementById("nextBtn").innerHTML = "Submit";
+  } else {
+    document.getElementById("nextBtn").innerHTML = "Next";
+  }
+  // ... and run a function that displays the correct step indicator:
+  fixStepIndicator(n)
+}
 
-        <label class="bold" for="charts">Would you like to Enroll in the TNB Music Charts?</label><br>
-        <input type="radio" id="charts" name="charts" value="YES">
-        <label for="charts">YES</label>
-        <input type="radio" id="charts" name="charts" value="NO">
-        <label for="charts">NO </label><br><hr>
+function nextPrev(n) {
+  // This function will figure out which tab to display
+  var x = document.getElementsByClassName("tab");
+  // Exit the function if any field in the current tab is invalid:
+ // if (n == 1 && !validateForm()) return false;
+  // Hide the current tab:
+  x[currentTab].style.display = "none";
+  // Increase or decrease the current tab by 1:
+  currentTab = currentTab + n;
+  // if you have reached the end of the form... :
+  if (currentTab >= x.length) {
+    //...the form gets submitted:
+    document.getElementById("regForm").submit();
+    return false;
+  }
+  // Otherwise, display the correct tab:
+  showTab(currentTab);
+}
 
-<label class="bold" for="email">**Optional** Spotify Url / Artist Name:</label><br>
-        <input style="width:400px; height: 40px;" type="spoturl" id="spoturl" name="spoturl" value=""><br>
-        <label class="bold" for="soundurl">**Optional** Soundcloud URL:</label><br>
-        <input style="width:400px; height: 40px;"  type="text" id="soundurl" name="soundurl" value=""><br><br>
 
-        <input id="button1" type="submit" value="Submit">
-        
-      </form>
-</div>
 
-<div class="margin30"></div>
-      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+function fixStepIndicator(n) {
+  // This function removes the "active" class of all steps...
+  var i, x = document.getElementsByClassName("step");
+  for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+  }
+  //... and adds the "active" class to the current step:
+  x[n].className += " active";
+}
+    </script>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
 </body>
 </html>
