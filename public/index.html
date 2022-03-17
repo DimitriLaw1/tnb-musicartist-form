@@ -35,19 +35,16 @@
             <select id="selectSchool" name="selectSchool">
                 <option value="empty"> </option>
               <option value="ncat">North Carolina Agricultural and Technical State University</option>
-              <option value="famu">Florida Agricultural and Mechanical University</option>
               <option value="wssu">Winston-Salem State University</option>
-              <option value="vsu">Virginia State University</option>
+              <option value="nccu">North Carolina Central University</option>
               <option value="jcsu">Johnson C. Smith University</option>
-              <option value="howardU">Howard University</option>
-              <option value="dsu">Delaware State University</option>
-              <option value="asu">Alabama State University</option>
-              <option value="tsu">Texas Southern University</option>
-              <option value="hamptonU">Hampton University</option>
-              <option value="ssu">Savannah State University</option>
+              <option value="faystate">Fayetteville State University</option>
+              
+              
             </select></p>
 <hr>
             <p><label for="addNewSchool">School not listed?</label>
+              <p class="smallGrey"><label for="whatAreYou">a Total of 25 Students from your school must sign up for your school to be covered!</label>
             <p><input type="text" id="addNewSchool" name="addNewSchool" value="" placeholder="Type your Schools Name..." oninput="this.className = ''"></p>
         </div>
         
@@ -55,17 +52,19 @@
             <p class="smallGrey"><label for="whatAreYou">Select the best option that applies to you</label>
                 <select id="whatAreYou" name="whatAreYou" >
                     <option value="empty"> </option>
-                  <option value="musicArtist">Music Artist</option>
-                  <option value="fashionEnthusiast">Fashion Enthusiast</option>
-                  <option value="Student">Just a Student</option>
-                  <option value="Alumni">Just an Alumni</option>
+                  <option value="Student musicArtist">Music Artist (student)</option>
+                  <option value="Student fashionEnthusiast">Fashion Enthusiast (student)</option>
+                  <option value="Alumni Music Artist">Music Artist (Alumni)</option>
+                  <option value="Alumni fashionEnthusiast">Fashion Enthusiast (Alumni)</option>
+                  <option value="justAStudent">Just a Student</option>
+                  <option value="justAnAlumni">Just an Alumni</option>
                   
                 </select></p>
         </div>
         
         <div class="tab">
             <p><label for="contestEnroll">Would you Like to Enroll In Future Contest that We Have?</label></p>
-            <p class="smallGrey"> Contest: Drip Overload, Music Charts, Giveaways, etc.. </p> <hr>
+            <p class="smallGrey"> Contest: Drip Overload, Music Charts, Polls, Giveaways, etc.. </p> <hr>
             <input type="radio" id="contestEnroll" name="contestEnroll" value="YES">
                     <label  for="contestEnroll">YES</label>
                     <input type="radio" id="musicartist" name="contestEnroll" value="NO">
