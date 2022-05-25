@@ -61,7 +61,7 @@ app.post("/sign_up",(req,res)=>{
         console.log("Record Inserted Successfully");
     });
 
-    return res.redirect('signup_success.html')
+    return res.redirect('signup_success.php')
 
 }) 
 
@@ -74,7 +74,7 @@ app.get("/",(req,res)=>{
     res.set({
         "Allow-access-Allow-Origin": '*'
     })
-    return res.redirect('index.html');
+    return res.redirect('index.php');
 })
 
 app.listen(port, function() {
