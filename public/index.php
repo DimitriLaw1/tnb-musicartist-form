@@ -13,7 +13,7 @@
   
 
         <div>
-        <h1 class="hotWeekend"> 
+        <h1 class="hotWeekend">
             TheNetBerry
         </h1>
         
